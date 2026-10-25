@@ -1,5 +1,5 @@
-const { ether, balance } = require('@openzeppelin/test-helpers');
-const { accounts, contract } = require('@openzeppelin/test-environment');
+const { ether, balance } = require('../support/legacy-runtime');
+const { accounts, contract } = require('../support/legacy-runtime');
 
 const SideEntranceLenderPool = contract.fromArtifact('SideEntranceLenderPool');
 

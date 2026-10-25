@@ -1,5 +1,5 @@
-const { ether, expectRevert } = require('@openzeppelin/test-helpers');
-const { accounts, contract } = require('@openzeppelin/test-environment');
+const { ether, expectRevert } = require('../support/legacy-runtime');
+const { accounts, contract } = require('../support/legacy-runtime');
 
 const DamnValuableToken = contract.fromArtifact('DamnValuableToken');
 const UnstoppableLender = contract.fromArtifact('UnstoppableLender');

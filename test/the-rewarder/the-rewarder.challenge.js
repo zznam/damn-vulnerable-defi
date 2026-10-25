@@ -1,5 +1,5 @@
-const { ether, time } = require('@openzeppelin/test-helpers');
-const { accounts, contract } = require('@openzeppelin/test-environment');
+const { ether, time } = require('../support/legacy-runtime');
+const { accounts, contract } = require('../support/legacy-runtime');
 
 const FlashLoanerPool = contract.fromArtifact('FlashLoanerPool');
 const TheRewarderPool = contract.fromArtifact('TheRewarderPool');
