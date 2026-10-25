@@ -1,5 +1,5 @@
-const { ether, BN, balance } = require('@openzeppelin/test-helpers');
-const { accounts, contract, web3 } = require('@openzeppelin/test-environment');
+const { ether, balance } = require('../support/legacy-runtime');
+const { accounts, contract, web3 } = require('../support/legacy-runtime');
 const { expect } = require('chai');
 
 // Hacky way to easily get the Uniswap v1 contracts as artifacts
@@ -16,9 +16,9 @@ const PuppetPool = contract.fromArtifact('PuppetPool');
 
 // Calculates how much ETH (in wei) Uniswap will pay for the given amount of tokens
 function calculateTokenToEthInputPrice(tokensSold, tokensInReserve, etherInReserve) {
-    return tokensSold.mul(new BN('997')).mul(etherInReserve).div(
-        (tokensInReserve.mul(new BN('1000')).add(tokensSold.mul(new BN('997'))))
-    )
+    const feeAdjustedTokensSold = tokensSold * 997n;
+    return feeAdjustedTokensSold * etherInReserve /
+        (tokensInReserve * 1000n + feeAdjustedTokensSold);
 }
 
 describe('[Challenge] Puppet', function () {

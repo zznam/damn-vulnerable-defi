@@ -1,5 +1,5 @@
-const { ether, balance } = require('@openzeppelin/test-helpers');
-const { accounts, contract, web3 } = require('@openzeppelin/test-environment');
+const { ether, balance } = require('../support/legacy-runtime');
+const { accounts, contract, web3 } = require('../support/legacy-runtime');
 
 const Exchange = contract.fromArtifact('Exchange');
 const DamnValuableNFT = contract.fromArtifact('DamnValuableNFT');
